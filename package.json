@@ -1,5 +1,5 @@
 {
-  "name": "perlon-monorepo",
+  "name": "untidy",
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
@@ -9,13 +9,13 @@
     "clean": "rm -rf node_modules",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
-    "build": "pnpm --filter context build",
+    "build": "pnpm --filter mobygames build",
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^1.3.1",
     "eslint": "^8.57.0",
-    "eslint-config-perlon": "workspace:^",
+    "eslint-config-untidy": "workspace:^",
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
     "typescript": "^5.4.2",

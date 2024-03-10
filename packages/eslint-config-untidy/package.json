@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-perlon",
+  "name": "eslint-config-untidy",
   "description": "ESLint configuration",
   "private": true,
   "type": "module",

@@ -5,7 +5,7 @@ module.exports = {
     node: true,
   },
   plugins: ['@typescript-eslint', 'promise'],
-  extends: ['perlon'],
+  extends: ['untidy'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
