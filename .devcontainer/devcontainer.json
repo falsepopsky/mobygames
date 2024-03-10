@@ -1,0 +1,24 @@
+{
+  "name": "perlon monorepo template",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "20.11.1",
+      "nvmVersion": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig",
+        "vitest.explorer",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github"
+      ]
+    }
+  },
+  "postCreateCommand": "corepack enable && pnpm install"
+}

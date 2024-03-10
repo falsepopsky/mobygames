@@ -1,0 +1,22 @@
+{
+  "name": "eslint-config-perlon",
+  "description": "ESLint configuration",
+  "private": true,
+  "type": "module",
+  "author": "falsepopsky",
+  "license": "Apache-2.0",
+  "version": "1.0.0",
+  "main": "./index.cjs",
+  "exports": "./index.cjs",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vitest": "^0.3.24"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}

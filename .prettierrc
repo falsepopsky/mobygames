@@ -1,0 +1,13 @@
+{
+  "bracketSameLine": true,
+  "singleQuote": true,
+  "printWidth": 120,
+  "proseWrap": "preserve",
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "overrides": [
+    { "files": "*.md", "options": { "printWidth": 100, "proseWrap": "always" } },
+    { "files": "*.json", "options": { "trailingComma": "none" } },
+    { "files": "*.{yaml,yml}", "options": { "singleQuote": false, "printWidth": 100, "proseWrap": "never" } }
+  ]
+}

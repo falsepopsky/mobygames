@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "rootDir": ".",
+    "declaration": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noEmit": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "lib": ["es2023"],
+    "verbatimModuleSyntax": true
+  },
+  "include": [".eslintrc.cjs", "vitest.config.ts"],
+  "exclude": ["node_modules"]
+}

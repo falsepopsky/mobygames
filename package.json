@@ -1,0 +1,34 @@
+{
+  "name": "perlon-monorepo",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "format": "prettier --cache -w .",
+    "lint": "eslint . --cache --cache-location \"./node_modules/.cache/eslint/\"",
+    "clean": "rm -rf node_modules",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "build": "pnpm --filter context build",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-perlon": "workspace:^",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.2",
+    "vitest": "^1.3.1"
+  },
+  "engines": {
+    "node": "^20.0.0",
+    "pnpm": ">=8"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.20.1"
+    }
+  },
+  "packageManager": "pnpm@8.15.4"
+}
