@@ -11,7 +11,7 @@
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "build": "pnpm --filter mobygames build",
-    "preinstall": "npx only-allow pnpm"
+    "publish-packages": "pnpm run build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
