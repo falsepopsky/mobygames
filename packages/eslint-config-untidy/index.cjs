@@ -13,6 +13,22 @@ module.exports = {
       extends: ['plugin:vitest/recommended'],
       files: ['packages/*/tests/*.test.ts'],
     },
+    {
+      extends: ['plugin:jsdoc/recommended-typescript-error'],
+      files: ['packages/api/src/*.ts'],
+      rules: {
+        'jsdoc/require-jsdoc': [
+          'error',
+          {
+            require: {
+              ClassDeclaration: true,
+              FunctionDeclaration: true,
+              MethodDefinition: true,
+            },
+          },
+        ],
+      },
+    },
   ],
   rules: {
     '@typescript-eslint/no-use-before-define': [
