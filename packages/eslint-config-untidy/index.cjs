@@ -12,6 +12,9 @@ module.exports = {
       plugins: ['vitest'],
       extends: ['plugin:vitest/recommended'],
       files: ['packages/*/tests/*.test.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+      },
     },
     {
       extends: ['plugin:jsdoc/recommended-typescript-error'],
