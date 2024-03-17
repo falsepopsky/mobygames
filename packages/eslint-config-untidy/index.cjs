@@ -88,6 +88,7 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'error',
     '@typescript-eslint/no-import-type-side-effects': 'error',
     'n/no-missing-import': 'off',
+    'no-console': 'off',
   },
   reportUnusedDisableDirectives: true,
 };
