@@ -3,9 +3,6 @@
   "description": "ESLint configuration",
   "private": true,
   "type": "module",
-  "author": "falsepopsky",
-  "license": "Apache-2.0",
-  "version": "1.0.0",
   "main": "./index.cjs",
   "exports": "./index.cjs",
   "dependencies": {
