@@ -5,9 +5,11 @@
   "proseWrap": "preserve",
   "trailingComma": "es5",
   "tabWidth": 2,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     { "files": "*.md", "options": { "printWidth": 100, "proseWrap": "always" } },
     { "files": "*.json", "options": { "trailingComma": "none" } },
-    { "files": "*.{yaml,yml}", "options": { "singleQuote": false, "printWidth": 100, "proseWrap": "never" } }
+    { "files": "*.{yaml,yml}", "options": { "singleQuote": false, "printWidth": 100, "proseWrap": "never" } },
+    { "files": "*.astro", "options": { "parser": "astro", "astroAllowShorthand": true } }
   ]
 }

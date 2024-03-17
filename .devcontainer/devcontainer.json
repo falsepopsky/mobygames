@@ -12,8 +12,11 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
         "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "astro-build.astro-vscode",
+        "unifiedjs.vscode-mdx",
         "vitest.explorer",
         "github.vscode-github-actions",
         "github.vscode-pull-request-github"
