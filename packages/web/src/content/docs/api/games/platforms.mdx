@@ -1,0 +1,47 @@
+---
+title: gamePlatforms
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/:game_id/platforms'} />
+
+This method returns a list of platforms records for which a game was released. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesgame_idplatforms), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params | Type     | Required | Description   |
+| ------ | -------- | :------: | ------------- |
+| id     | `string` |   Yes    | The game `id` |
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamePlatforms('16373');
+```
+
+<Details>
+
+```js
+{
+  platforms: [
+    { first_release_date: '2006-03-28', platform_id: 3, platform_name: 'Windows' },
+    { first_release_date: '2005', platform_id: 7, platform_name: 'PlayStation 2' },
+    { first_release_date: '2011-09-20', platform_id: 69, platform_name: 'Xbox 360' },
+    { first_release_date: '2011-09-20', platform_id: 81, platform_name: 'PlayStation 3' },
+    { first_release_date: '2007-05-31', platform_id: 82, platform_name: 'Wii' },
+    { first_release_date: '2015-10-29', platform_id: 132, platform_name: 'Wii U' },
+    { first_release_date: '2016-08-30', platform_id: 141, platform_name: 'PlayStation 4' },
+    { first_release_date: '2016-08-30', platform_id: 142, platform_name: 'Xbox One' },
+    { first_release_date: '2019-05-21', platform_id: 203, platform_name: 'Nintendo Switch' },
+  ],
+};
+```
+
+</Details>

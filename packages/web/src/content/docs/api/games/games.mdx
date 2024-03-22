@@ -1,0 +1,146 @@
+---
+title: games
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games'} />
+
+This method returns a list of games records. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#games), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params           | Type                 | Required | Description                                                                              |
+| ---------------- | -------------------- | :------: | ---------------------------------------------------------------------------------------- |
+| queries          | `object`             | Optional | Search parameters to restrict the result                                                 |
+| queries.id       | `string`, `string[]` | Optional | IDs of games to return. If specified, other parameters besides `format` will be ignored. |
+| queries.limit    | `string`             | Optional | The maximum number of games to return                                                    |
+| queries.offset   | `string`             | Optional | The offset from which to begin returning games                                           |
+| queries.platform | `string`, `string[]` | Optional | The `ID` of a platform on which the game was released                                    |
+| queries.genre    | `string`, `string[]` | Optional | The `ID` of a genre assigned to the game                                                 |
+| queries.group    | `string`, `string[]` | Optional | The `ID` of a group assigned to the game                                                 |
+| queries.title    | `string`, `string[]` | Optional | A substring of the title (not case sensitive)                                            |
+| queries.format   | `string`             | Optional | The output format (default `normal`)                                                     |
+
+## Examples
+
+### Without queries parameters
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.games();
+```
+
+<Details>
+
+```js
+{
+  groups: [
+    {
+      group_description:
+        'Monkey Island is a series of comedy adventure games set in fictional 18th century-like Caribbean Islands, telling the story of the young wannabe-pirate Guybrush Threepwood. The series was originally envisioned as a trilogy by the main designer Ron Gilbert, but he only completed the first two games; the third and the fourth were made without his participation. The latter signified the conclusion of the original series, being the last one developed by LucasArts.\n\nLike most LucasArts adventures, Monkey Island games are "death-free" (the player character cannot die), have no "dead ends" (the player cannot get irrevocably stuck), and are based on inventory puzzles and branching dialogue. The series\' first installment, The Secret of Monkey Island (1990), was also the first adventure game made by LucasArts that answered all of the above requirements, defining the company\'s adventure game design philosophy.\n\nIn 2009, Telltale licensed the property for a five-part episodic adventure game, which eventually became Tales of Monkey Island.\n\nAwards\n\n\n\nComputer Gaming World\n\n\nNovember 1996 (15th anniversary issue) – #3 Most Memorable Game Hero (Guybrush Threepwood)\n\nNovember 1996 (15th anniversary issue) – #10 Most Memorable Game Villain (LeChuck)\n\n\n',
+      group_id: 1,
+      group_name: 'Monkey Island series',
+    },
+    {
+      group_description:
+        'Games based on the writings of H. P. Lovecraft. These tend to concern themselves mostly with the stories forming the basis for what has become known as the "Cthulhu mythos." (Lovecraft himself never used the term.)\n\nGenerally made on license from Chaosium, though the pervasive influence of Lovecraft on modern horror writers means there\'s significant leeway in what to call "inspired by Lovecraft" or not.',
+      group_id: 2,
+      group_name: 'Inspiration: Author - H. P. Lovecraft',
+    },
+    // ...
+  ],
+};
+```
+
+</Details>
+
+### Format records in the response
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.games({ format: 'brief' });
+```
+
+<Details>
+
+```js
+{
+  games: [
+    { game_id: 47, moby_url: 'https://www.mobygames.com/game/47/zyll/', title: 'Zyll' },
+    { game_id: 48, moby_url: 'https://www.mobygames.com/game/48/skate-or-die/', title: 'Skate or Die' },
+    // ...
+  ],
+};
+```
+
+</Details>
+
+### Get specific games records by id in the response
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.games({ id: ['101945', '40017'] });
+```
+
+<Details>
+
+```js
+{
+  games: [
+    {
+      alternate_titles: [{ description: 'Japanese title', title: 'Dragon Ball Z Sparking! Meteor' }],
+      description:
+        '<p><em>Budokai Tenkaichi 3</em> is a 1vs1 fighting game based on the anime/manga Dragon Ball by <a href="https://www.mobygames.com/person/62994/akira-toriyama/">Akira Toriyama</a>. It includes the apocalyptic battles and the essence of the Dragon Ball series following the main story of the popular manga. As in the previous games of the series, you\'ll have to select your character (over 162 characters with their own movements and combos) and fight against a friend or the computer in many different game modes with many different stages and weather/time conditions.</p>\n<p><em>Budokai Tenkaichi 3</em> is the third game of the <a href="https://www.mobygames.com/search/?q=Budokai+Tenkaichi+series">Budokai Tenkaichi series</a> and features some new things like new characters, Battle Replay to capture your fights and save them to a SD card, night and day stages for more accurate battles following the history made by Akira Toriyama and a Disc Fusion to unlock new modes with the need of previously released games <em>Budokai Tenkaichi</em> and <em>Budokai Tenkaichi 2</em>. There are also new combos and movements as well as the possibility to take control of the Giant Apes for the Saiyans.</p>',
+      game_id: 40017,
+      genres: [{ genre_category: 'Basic Genres', genre_category_id: 1, genre_id: 1, genre_name: 'Action' }],
+      moby_score: 7.5,
+      moby_url: 'https://www.mobygames.com/game/40017/dragon-ball-z-budokai-tenkaichi-3/',
+      num_votes: 14,
+      official_url: null,
+      platforms: [{ first_release_date: '2007-10-04', platform_id: 7, platform_name: 'PlayStation 2' }],
+      sample_cover: {
+        height: 800,
+        image:
+          'https://cdn.mobygames.com/covers/5564015-dragon-ball-z-budokai-tenkaichi-3-playstation-2-front-cover.jpg',
+        platforms: ['PlayStation 2'],
+        thumbnail_image: 'https://cdn.mobygames.com/74efe722-abe7-11ed-82af-02420a000136.webp',
+        width: 565,
+      },
+      sample_screenshots: [],
+      title: 'Dragon Ball Z: Budokai Tenkaichi 3',
+    },
+    {
+      alternate_titles: [],
+      description: null,
+      game_id: 101945,
+      genres: [{ genre_category: 'Basic Genres', genre_category_id: 1, genre_id: 1, genre_name: 'Action' }],
+      moby_score: 8.4,
+      moby_url: 'https://www.mobygames.com/game/101945/dragon-ball-fighterz/',
+      num_votes: 10,
+      official_url: 'https://www.bandainamcoent.com/',
+      platforms: [{ first_release_date: '2018-01-26', platform_id: 3, platform_name: 'Windows' }],
+      sample_cover: {
+        height: 215,
+        image: 'https://cdn.mobygames.com/covers/1408577-dragon-ball-fighterz-windows-front-cover.jpg',
+        platforms: ['Windows'],
+        thumbnail_image: 'https://cdn.mobygames.com/dc850962-ab74-11ed-bc1c-02420a00019a.webp',
+        width: 460,
+      },
+      sample_screenshots: [],
+      title: 'Dragon Ball FighterZ',
+    },
+  ],
+};
+```
+
+</Details>

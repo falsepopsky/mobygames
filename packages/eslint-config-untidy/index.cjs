@@ -12,6 +12,25 @@ module.exports = {
       plugins: ['vitest'],
       extends: ['plugin:vitest/recommended'],
       files: ['packages/*/tests/*.test.ts'],
+      rules: {
+        '@typescript-eslint/naming-convention': 'off',
+      },
+    },
+    {
+      extends: ['plugin:jsdoc/recommended-typescript-error'],
+      files: ['packages/api/src/*.ts'],
+      rules: {
+        'jsdoc/require-jsdoc': [
+          'error',
+          {
+            require: {
+              ClassDeclaration: true,
+              FunctionDeclaration: true,
+              MethodDefinition: true,
+            },
+          },
+        ],
+      },
     },
   ],
   rules: {
@@ -68,7 +87,9 @@ module.exports = {
     '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
     '@typescript-eslint/strict-boolean-expressions': 'error',
     '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     'n/no-missing-import': 'off',
+    'no-console': 'off',
   },
   reportUnusedDisableDirectives: true,
 };

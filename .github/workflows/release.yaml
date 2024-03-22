@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: ["CD"]
+    types:
+      - completed
+    branches:
+      - main
+
+env:
+  PNPM_VERSION: 8.15.5
+
+jobs:
+  release:
+    name: 🚀 Release
+    if: ${{ (github.event.workflow_run.conclusion == 'success') && (github.repository == 'falsepopsky/mobygmes') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.1
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3.0.0
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: ".nvmrc"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1.4.7
+        with:
+          title: "chore(release): new @untidy/mobygames version"
+          commit: "chore(release): publish new version"
+          publish: pnpm run publish-packages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

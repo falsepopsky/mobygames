@@ -3,6 +3,9 @@
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "astro-build.astro-vscode",
+    "unifiedjs.vscode-mdx",
     "vitest.explorer"
   ]
 }

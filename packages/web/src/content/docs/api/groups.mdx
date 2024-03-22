@@ -1,0 +1,87 @@
+---
+title: groups
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/groups'} />
+
+This method returns a list of groups records. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#groups), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params         | Type     | Required | Description                                     |
+| -------------- | -------- | :------: | ----------------------------------------------- |
+| queries        | `object` | Optional | Search parameters to restrict the result        |
+| queries.limit  | `string` | Optional | The maximum number of groups to return          |
+| queries.offset | `string` | Optional | The offset from which to begin returning groups |
+
+## Examples
+
+### Without queries parameters
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.groups();
+```
+
+<Details>
+
+```js
+{
+  groups: [
+    {
+      group_description:
+        'Monkey Island is a series of comedy adventure games set in fictional 18th century-like Caribbean Islands, telling the story of the young wannabe-pirate Guybrush Threepwood. The series was originally envisioned as a trilogy by the main designer Ron Gilbert, but he only completed the first two games; the third and the fourth were made without his participation. The latter signified the conclusion of the original series, being the last one developed by LucasArts.\n\nLike most LucasArts adventures, Monkey Island games are "death-free" (the player character cannot die), have no "dead ends" (the player cannot get irrevocably stuck), and are based on inventory puzzles and branching dialogue. The series\' first installment, The Secret of Monkey Island (1990), was also the first adventure game made by LucasArts that answered all of the above requirements, defining the company\'s adventure game design philosophy.\n\nIn 2009, Telltale licensed the property for a five-part episodic adventure game, which eventually became Tales of Monkey Island.\n\nAwards\n\n\n\nComputer Gaming World\n\n\nNovember 1996 (15th anniversary issue) – #3 Most Memorable Game Hero (Guybrush Threepwood)\n\nNovember 1996 (15th anniversary issue) – #10 Most Memorable Game Villain (LeChuck)\n\n\n',
+      group_id: 1,
+      group_name: 'Monkey Island series',
+    },
+    {
+      group_description:
+        'Games based on the writings of H. P. Lovecraft. These tend to concern themselves mostly with the stories forming the basis for what has become known as the "Cthulhu mythos." (Lovecraft himself never used the term.)\n\nGenerally made on license from Chaosium, though the pervasive influence of Lovecraft on modern horror writers means there\'s significant leeway in what to call "inspired by Lovecraft" or not.',
+      group_id: 2,
+      group_name: 'Inspiration: Author - H. P. Lovecraft',
+    },
+    // ...
+  ],
+};
+```
+
+</Details>
+
+### Limit and offset records in the response
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.groups({ limit: '30', offset: '30' });
+```
+
+<Details>
+
+```js
+{
+  groups: [
+    {
+      group_description: 'Commander Keen is a series of platform games developed by id Software.',
+      group_id: 32,
+      group_name: 'Commander Keen series',
+    },
+    {
+      group_description:
+        'Simtex / Quicksilver sci-fi 4X game series dealing with the spread and security of various competing alien races in a finite cosmos.',
+      group_id: 33,
+      group_name: 'Master of Orion series',
+    },
+    // ...
+  ],
+};
+```
+
+</Details>

@@ -1,0 +1,61 @@
+---
+title: gamePlatformScreenshots
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/:game_id/platforms/:platform_id/screenshots'} />
+
+This method returns a list of screenshots records on the specified game and platform. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesgame_idplatformsplatform_idscreenshots), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params     | Type     | Required | Description       |
+| ---------- | -------- | :------: | ----------------- |
+| gameId     | `string` |   Yes    | The game `id`     |
+| platformId | `string` |   Yes    | The platform `id` |
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamePlatformScreenshots('7151', '16');
+```
+
+<Details>
+
+```js
+{
+  screenshots: [
+    {
+      caption: 'The Story',
+      height: 224,
+      image: 'https://cdn.mobygames.com/screenshots/15986565-judge-dredd-genesis-the-story.png',
+      thumbnail_image: 'https://cdn.mobygames.com/5857e968-bf22-11ed-9c42-02420a000140.webp',
+      width: 320,
+    },
+    {
+      caption: 'Title',
+      height: 224,
+      image: 'https://cdn.mobygames.com/screenshots/15986583-judge-dredd-genesis-title.png',
+      thumbnail_image: 'https://cdn.mobygames.com/590a2754-bf22-11ed-9c42-02420a000140.webp',
+      width: 320,
+    },
+    {
+      caption: 'First mission brief',
+      height: 224,
+      image: 'https://cdn.mobygames.com/screenshots/15986604-judge-dredd-genesis-first-mission-brief.png',
+      thumbnail_image: 'https://cdn.mobygames.com/59e6fee0-bf22-11ed-9c42-02420a000140.webp',
+      width: 256,
+    },
+    // ...
+  ],
+};
+```
+
+</Details>

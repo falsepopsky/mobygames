@@ -1,0 +1,67 @@
+---
+title: gamesRandom
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/random'} />
+
+This method returns a list of random games records. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesrandom), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params         | Type     | Required | Description                              |
+| -------------- | -------- | :------: | ---------------------------------------- |
+| queries        | `object` | Optional | Search parameters to restrict the result |
+| queries.limit  | `string` | Optional | The maximum number of games to return    |
+| queries.format | `string` | Optional | The output format (default `id`)         |
+
+## Examples
+
+### Without queries parameters
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamesRandom();
+```
+
+<Details>
+
+```js
+{
+  games: [58675, 3393, 10816, 15685, 3929],
+};
+```
+
+</Details>
+
+### Format and limit records in the response
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamesRandom({ format: 'brief', limit: '2' });
+```
+
+<Details>
+
+```js
+{
+  games: [
+    { game_id: 58675, moby_url: 'https://www.mobygames.com/game/58675/forza-horizon/', title: 'Forza Horizon' },
+    {
+      game_id: 3393,
+      moby_url: 'https://www.mobygames.com/game/3393/the-legend-of-zelda/',
+      title: 'The Legend of Zelda',
+    },
+  ],
+};
+```
+
+</Details>

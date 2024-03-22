@@ -1,0 +1,48 @@
+---
+title: platforms
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/platforms'} />
+
+This method returns a list of platforms records. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#platforms), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+This method does not require any parameters.
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.platforms();
+```
+
+<Details>
+
+```js
+{
+  platforms: [
+    { platform_id: 253, platform_name: '1292 Advanced Programmable Video System' },
+    { platform_id: 35, platform_name: '3DO' },
+    { platform_id: 318, platform_name: 'ABC 80' },
+    { platform_id: 213, platform_name: 'APF MP1000/Imagination Machine' },
+    { platform_id: 117, platform_name: 'Acorn 32-bit' },
+    { platform_id: 210, platform_name: 'Adventure Vision' },
+    { platform_id: 305, platform_name: 'AirConsole' },
+    { platform_id: 194, platform_name: 'Alice 32/90' },
+    { platform_id: 265, platform_name: 'Altair 680' },
+    { platform_id: 222, platform_name: 'Altair 8800' },
+    { platform_id: 237, platform_name: 'Amazon Alexa' },
+    // ...
+  ],
+};
+```
+
+</Details>

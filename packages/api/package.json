@@ -1,0 +1,40 @@
+{
+  "name": "@untidy/mobygames",
+  "description": "Client library for MobyGames API in Node.js",
+  "version": "0.0.0",
+  "type": "module",
+  "author": "falsepopsky",
+  "license": "Apache-2.0",
+  "homepage": "https://falsepopsky.github.io/mobygames",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean:build": "rm -rf dist",
+    "prebuild": "pnpm run clean:build",
+    "build": "tsc --project tsconfig.build.json",
+    "test": "vitest --coverage"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.3"
+  },
+  "engines": {
+    "node": "^18.19.1 || ^20.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/falsepopsky/mobygames.git",
+    "directory": "packages/api"
+  },
+  "bugs": {
+    "url": "https://github.com/falsepopsky/mobygames/issues"
+  }
+}

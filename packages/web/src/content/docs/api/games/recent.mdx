@@ -1,0 +1,87 @@
+---
+title: gamesRecent
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/recent'} />
+
+This method returns a list of games records that have been modified recently. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesrecent), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params         | Type     | Required | Description                                     |
+| -------------- | -------- | :------: | ----------------------------------------------- |
+| queries        | `object` | Optional | Search parameters to restrict the result        |
+| queries.limit  | `string` | Optional | The maximum number of games to return           |
+| queries.offset | `string` | Optional | The offset from which to begin returning games  |
+| queries.age    | `string` | Optional | Return only games modified in the last age days |
+| queries.format | `string` | Optional | The output format (default `id`)                |
+
+## Examples
+
+### Without queries parameters
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamesRecent();
+```
+
+<Details>
+
+```js
+{
+  games: [99383, 91091, 106394, 50990, 106393];
+}
+```
+
+</Details>
+
+### Format and age records in the response
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamesRecent({ format: 'normal', age: '1' });
+```
+
+<Details>
+
+```js
+{
+  games: [
+    {
+      alternate_titles: [],
+      description:
+        "<p><em>Russian Roulette</em> is a game of chance. The player presses 1 to spin the chamber of a six shooter and fire a shot. The player wins if he's not dead after 10 shots.</p>",
+      game_id: 106402,
+      genres: [
+        { genre_category: 'Basic Genres', genre_category_id: 1, genre_id: 28, genre_name: 'Gambling' },
+        { genre_category: 'Perspective', genre_category_id: 2, genre_id: 130, genre_name: 'Text-based / Spreadsheet' },
+        { genre_category: 'Pacing', genre_category_id: 9, genre_id: 106, genre_name: 'Turn-based' },
+        { genre_category: 'Interface/Control', genre_category_id: 7, genre_id: 171, genre_name: 'Text parser' },
+      ],
+      moby_score: null,
+      moby_url: 'https://www.mobygames.com/game/106402/russian-roulette/',
+      num_votes: 1,
+      official_url: null,
+      platforms: [
+        { first_release_date: '1973', platform_id: 208, platform_name: 'Mainframe' },
+        { first_release_date: '1979-01', platform_id: 216, platform_name: 'COSMAC' },
+      ],
+      sample_cover: null,
+      sample_screenshots: [],
+      title: 'Russian Roulette',
+    },
+    // ...
+  ],
+};
+```
+
+</Details>

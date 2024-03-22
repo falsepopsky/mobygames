@@ -1,0 +1,12 @@
+"📦 @untidy/mobygames":
+  - "packages/api/src/**"
+"📚 docs":
+  - "packages/web/**"
+  - "README.md"
+  - "packages/api/README.md"
+"🧪 tests":
+  - "packages/api/tests/**"
+  - "mocks/**"
+"⚙️ configs":
+  - ".prettierrc"
+  - ".eslintrc.cjs"
