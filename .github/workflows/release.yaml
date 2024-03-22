@@ -9,12 +9,12 @@ on:
       - main
 
 env:
-  PNPM_VERSION: 8.15.4
+  PNPM_VERSION: 8.15.5
 
 jobs:
   release:
     name: 🚀 Release
-    if: ${{ (github.event.workflow_run.conclusion == 'success') && (github.repository == 'falsepopsky/thetvdb') }}
+    if: ${{ (github.event.workflow_run.conclusion == 'success') && (github.repository == 'falsepopsky/mobygmes') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -38,7 +38,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1.4.6
+        uses: changesets/action@v1.4.7
         with:
           title: "chore(release): new @untidy/mobygames version"
           commit: "chore(release): publish new version"
