@@ -208,20 +208,6 @@ describe('gamePlatformById()', () => {
   });
 });
 
-describe('gamePlatformScreenshots()', () => {
-  it('returns a successful response', async () => {
-    const { screenshots } = await client.gamePlatformScreenshots('7151', '16');
-
-    expect(Array.isArray(screenshots)).toBe(true);
-    expect(screenshots).toHaveLength(3);
-    expect(screenshots[0]?.height).toBe(224);
-    expect(screenshots[0]?.width).toBe(320);
-    expect(screenshots[1]?.caption).toBe('Title');
-    expect(screenshots[1]?.image).toBe('https://cdn.mobygames.com/screenshots/15986583-judge-dredd-genesis-title.png');
-    expect(screenshots[2]?.thumbnail_image).toBe('https://cdn.mobygames.com/59e6fee0-bf22-11ed-9c42-02420a000140.webp');
-  });
-});
-
 describe('gamePlatformCovers()', () => {
   it('returns a successful response', async () => {
     const { cover_groups } = await client.gamePlatformCovers('120555', '141');
@@ -237,5 +223,19 @@ describe('gamePlatformCovers()', () => {
     expect(cover_groups[1]?.covers[0]?.height).toBe(800);
     expect(cover_groups[1]?.covers[0]?.width).toBe(634);
     expect(cover_groups[1]?.covers[0]?.scan_of).toBe('Front Cover');
+  });
+});
+
+describe('gamePlatformScreenshots()', () => {
+  it('returns a successful response', async () => {
+    const { screenshots } = await client.gamePlatformScreenshots('7151', '16');
+
+    expect(Array.isArray(screenshots)).toBe(true);
+    expect(screenshots).toHaveLength(3);
+    expect(screenshots[0]?.height).toBe(224);
+    expect(screenshots[0]?.width).toBe(320);
+    expect(screenshots[1]?.caption).toBe('Title');
+    expect(screenshots[1]?.image).toBe('https://cdn.mobygames.com/screenshots/15986583-judge-dredd-genesis-title.png');
+    expect(screenshots[2]?.thumbnail_image).toBe('https://cdn.mobygames.com/59e6fee0-bf22-11ed-9c42-02420a000140.webp');
   });
 });

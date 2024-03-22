@@ -3,8 +3,9 @@
   "description": "Client library for MobyGames API in Node.js",
   "version": "0.0.0",
   "type": "module",
-  "license": "Apache-2.0",
   "author": "falsepopsky",
+  "license": "Apache-2.0",
+  "homepage": "https://falsepopsky.github.io/mobygames",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
