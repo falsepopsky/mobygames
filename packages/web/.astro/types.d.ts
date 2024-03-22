@@ -136,6 +136,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"docs": {
+"api/games/covers.mdx": {
+	id: "api/games/covers.mdx";
+  slug: "api/games/covers";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "api/games/games.mdx": {
 	id: "api/games/games.mdx";
   slug: "api/games/games";
@@ -143,9 +150,44 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"api/games/id.mdx": {
+	id: "api/games/id.mdx";
+  slug: "api/games/id";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/games/platformid.mdx": {
+	id: "api/games/platformid.mdx";
+  slug: "api/games/platformid";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/games/platforms.mdx": {
+	id: "api/games/platforms.mdx";
+  slug: "api/games/platforms";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "api/games/random.mdx": {
 	id: "api/games/random.mdx";
   slug: "api/games/random";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/games/recent.mdx": {
+	id: "api/games/recent.mdx";
+  slug: "api/games/recent";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/games/screenshots.mdx": {
+	id: "api/games/screenshots.mdx";
+  slug: "api/games/screenshots";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
