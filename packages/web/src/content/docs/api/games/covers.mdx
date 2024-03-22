@@ -1,0 +1,160 @@
+---
+title: gamePlatformCovers
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/:game_id/platforms/:platform_id/covers'} />
+
+This method returns a list of covers records on the specified game and platform. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesgame_idplatformsplatform_idcovers), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params     | Type     | Required | Description       |
+| ---------- | -------- | :------: | ----------------- |
+| gameId     | `string` |   Yes    | The game `id`     |
+| platformId | `string` |   Yes    | The platform `id` |
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamePlatformCovers('120555', '141');
+```
+
+<Details>
+
+```js
+{
+  cover_groups: [
+    {
+      comments: 'Lenticular Edition',
+      countries: ['Belgium', 'The Netherlands'],
+      covers: [
+        {
+          comments: 'Lenticular Card on transparant sleeve',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7427601-resident-evil-2-playstation-4-front-cover.jpg',
+          scan_of: 'Front Cover',
+          thumbnail_image: 'https://cdn.mobygames.com/3de9abaa-abf6-11ed-8949-02420a00012e.webp',
+          width: 636,
+        },
+        {
+          comments: null,
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7427568-resident-evil-2-playstation-4-media.jpg',
+          scan_of: 'Media',
+          thumbnail_image: 'https://cdn.mobygames.com/37132770-abf6-11ed-8949-02420a00012e.webp',
+          width: 800,
+        },
+        {
+          comments: 'Keep Case - Front',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7441118-resident-evil-2-playstation-4-other.jpg',
+          scan_of: 'Other',
+          thumbnail_image: 'https://cdn.mobygames.com/55ce217e-abf6-11ed-b7c8-02420a000136.webp',
+          width: 643,
+        },
+        {
+          comments: 'Keep Case - Spine',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7441121-resident-evil-2-playstation-4-other.jpg',
+          scan_of: 'Other',
+          thumbnail_image: 'https://cdn.mobygames.com/5654051e-abf6-11ed-b7c8-02420a000136.webp',
+          width: 68,
+        },
+        {
+          comments: 'Keep Case - Back',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7441124-resident-evil-2-playstation-4-other.jpg',
+          scan_of: 'Other',
+          thumbnail_image: 'https://cdn.mobygames.com/5727e456-abf6-11ed-b7c8-02420a000136.webp',
+          width: 645,
+        },
+        {
+          comments: 'Keep Case - Inside Complete',
+          description: null,
+          height: 706,
+          image: 'https://cdn.mobygames.com/covers/7441127-resident-evil-2-playstation-4-other.jpg',
+          scan_of: 'Other',
+          thumbnail_image: 'https://cdn.mobygames.com/583d1762-abf6-11ed-b7c8-02420a000136.webp',
+          width: 1200,
+        },
+        {
+          comments: 'Warranty Leaflet - Front (Dutch)',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7427571-resident-evil-2-playstation-4-extras.jpg',
+          scan_of: 'Extras',
+          thumbnail_image: 'https://cdn.mobygames.com/386b5016-abf6-11ed-8949-02420a00012e.webp',
+          width: 644,
+        },
+        {
+          comments: 'Warranty Leaflet - Back (French)',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7427574-resident-evil-2-playstation-4-extras.jpg',
+          scan_of: 'Extras',
+          thumbnail_image: 'https://cdn.mobygames.com/38e2a972-abf6-11ed-8949-02420a00012e.webp',
+          width: 643,
+        },
+      ],
+    },
+    {
+      comments: null,
+      countries: ['Italy', 'Spain'],
+      covers: [
+        {
+          comments: null,
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/10143414-resident-evil-2-playstation-4-front-cover.jpg',
+          scan_of: 'Front Cover',
+          thumbnail_image: 'https://cdn.mobygames.com/8853422a-ac0d-11ed-96e1-02420a00012d.webp',
+          width: 634,
+        },
+        {
+          comments: null,
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/10143417-resident-evil-2-playstation-4-back-cover.jpg',
+          scan_of: 'Back Cover',
+          thumbnail_image: 'https://cdn.mobygames.com/88ba8908-ac0d-11ed-96e1-02420a00012d.webp',
+          width: 637,
+        },
+        {
+          comments: null,
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/10143420-resident-evil-2-playstation-4-spinesides.jpg',
+          scan_of: 'Spine/Sides',
+          thumbnail_image: 'https://cdn.mobygames.com/88f68174-ac0d-11ed-96e1-02420a00012d.webp',
+          width: 67,
+        },
+        {
+          comments: null,
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/10143423-resident-evil-2-playstation-4-media.jpg',
+          scan_of: 'Media',
+          thumbnail_image: 'https://cdn.mobygames.com/895ecd38-ac0d-11ed-96e1-02420a00012d.webp',
+          width: 800,
+        },
+      ],
+    },
+    // ...
+  ],
+};
+```
+
+</Details>

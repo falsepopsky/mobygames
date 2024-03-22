@@ -1,0 +1,85 @@
+---
+title: gamePlatformById
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/:game_id/platforms/:platform_id'} />
+
+This method returns a single game record on the specified platform. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesgame_idplatformsplatform_id), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params     | Type     | Required | Description       |
+| ---------- | -------- | :------: | ----------------- |
+| gameId     | `string` |   Yes    | The game `id`     |
+| platformId | `string` |   Yes    | The platform `id` |
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gamePlatformById('120555', '141');
+```
+
+<Details>
+
+```js
+{
+  attributes: [
+    {
+      attribute_category_id: 16,
+      attribute_category_name: 'Business Model',
+      attribute_id: 124,
+      attribute_name: 'Commercial',
+    },
+    {
+      attribute_category_id: 21,
+      attribute_category_name: 'Media Type',
+      attribute_id: 1095,
+      attribute_name: 'Blu-Ray Disc',
+    },
+  ],
+  first_release_date: '2019-01-25',
+  game_id: 120555,
+  patches: [
+    {
+      description: '<p>Version 1.01 <small>-- Download: 562.5 MB</small></p>\n<ul>\n<li> Bug fixes</li>\n</ul>',
+      release_date: '2019-01-25',
+    },
+  ],
+  platform_id: 141,
+  platform_name: 'PlayStation 4',
+  ratings: [
+    { rating_id: 93, rating_name: 'Mature', rating_system_id: 13, rating_system_name: 'ESRB Rating' },
+    { rating_id: 426, rating_name: '18', rating_system_id: 31, rating_system_name: 'PEGI Rating' },
+    {
+      rating_id: 436,
+      rating_name: '18 (keine Jugendfreigabe)',
+      rating_system_id: 33,
+      rating_system_name: 'USK Rating',
+    },
+    { rating_id: 2263, rating_name: 'R18+', rating_system_id: 30, rating_system_name: 'ACB Rating' },
+  ],
+  releases: [
+    {
+      companies: [
+        { company_id: 3955, company_name: 'Capcom Co., Ltd.', role: 'Published by' },
+        { company_id: 3955, company_name: 'Capcom Co., Ltd.', role: 'Developed by' },
+      ],
+      countries: ['Japan'],
+      description: 'download release',
+      product_codes: [],
+      release_date: '2019-01-25',
+    },
+    // ...
+  ],
+};
+```
+
+</Details>

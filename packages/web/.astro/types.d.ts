@@ -136,6 +136,83 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"docs": {
+"api/games/games.mdx": {
+	id: "api/games/games.mdx";
+  slug: "api/games/games";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/games/random.mdx": {
+	id: "api/games/random.mdx";
+  slug: "api/games/random";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/genres.mdx": {
+	id: "api/genres.mdx";
+  slug: "api/genres";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/groups.mdx": {
+	id: "api/groups.mdx";
+  slug: "api/groups";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/index.mdx": {
+	id: "api/index.mdx";
+  slug: "api";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/key.mdx": {
+	id: "api/key.mdx";
+  slug: "api/key";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"api/platforms.mdx": {
+	id: "api/platforms.mdx";
+  slug: "api/platforms";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"guides/faq.mdx": {
+	id: "guides/faq.mdx";
+  slug: "guides/faq";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"guides/getting-started.mdx": {
+	id: "guides/getting-started.mdx";
+  slug: "guides/getting-started";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"guides/prerequisites.mdx": {
+	id: "guides/prerequisites.mdx";
+  slug: "guides/prerequisites";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"guides/supported-endpoints.mdx": {
+	id: "guides/supported-endpoints.mdx";
+  slug: "guides/supported-endpoints";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "index.mdx": {
 	id: "index.mdx";
   slug: "index";

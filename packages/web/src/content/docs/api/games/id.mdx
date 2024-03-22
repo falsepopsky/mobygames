@@ -1,0 +1,130 @@
+---
+title: gameById
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/games/:game_id'} />
+
+This method returns a single game information record. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#gamesgame_id), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+| Params         | Type     | Required | Description                              |
+| -------------- | -------- | :------: | ---------------------------------------- |
+| id             | `string` |   Yes    | The game `id`                            |
+| queries        | `object` | Optional | Search parameters to restrict the result |
+| queries.format | `string` | Optional | The output format (default `normal`)     |
+
+## Examples
+
+### Without queries parameters
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gameById('2822');
+```
+
+<Details>
+
+```js
+{
+  alternate_titles: [],
+  description:
+    '<p>Three years ago a brilliant scientist disappeared while researching a new form of energy. The government that funded his research wrote the whole affair off as a loss, which made it all the more upsetting when reports of Dr. Kirk\'s good health and nearly finished research came in. A special forces team is sent to the doctor\'s private island laboratory to extract him and his research, but they are totally unprepared for some of the side effects of his developments. Side effects that come from 100 million years in the past.</p>\n<p><em>Dino Crisis</em> is a survival horror game that is very similar in both control and gameplay to its sister series, <a href="https://www.mobygames.com/group/374/biohazard-resident-evil-series/">Resident Evil</a>. As in that series, protagonist Regina will have limited supplies and ammo with which to fight deadly enemies while searching rooms for keys (some figurative, some literal) to open locked areas. Unlike <em>Resident Evil</em> games, Regina will find very few actual supplies laying around, and will instead find "plugs" that are used to open caches of emergency supplies located around the complex. There are only enough plugs to open some of these caches, however, so care must be taken to decide what items are really needed. In another change from <em>Resident Evil</em>, the game is rendered in 3D, allowing the camera to rotate or pan, although camera angles are still out of the control of the player. Even the dumbest dinosaur is smarter than the undead, and enemies can chase and disarm Regina, and even occasionally follow her through doors. Regina can use the force fields in the complex to block her enemies.</p>',
+  game_id: 2822,
+  genres: [
+    { genre_category: 'Basic Genres', genre_category_id: 1, genre_id: 1, genre_name: 'Action' },
+    { genre_category: 'Basic Genres', genre_category_id: 1, genre_id: 4, genre_name: 'Strategy / tactics' },
+    { genre_category: 'Perspective', genre_category_id: 2, genre_id: 126, genre_name: '3rd-person (Other)' },
+    { genre_category: 'Visual Presentation', genre_category_id: 12, genre_id: 132, genre_name: 'Cinematic camera' },
+    { genre_category: 'Gameplay', genre_category_id: 4, genre_id: 102, genre_name: 'Survival horror' },
+  ],
+  moby_score: 7.7,
+  moby_url: 'https://www.mobygames.com/game/2822/dino-crisis/',
+  num_votes: 77,
+  official_url: null,
+  platforms: [
+    { first_release_date: '2000', platform_id: 3, platform_name: 'Windows' },
+    { first_release_date: '1999', platform_id: 6, platform_name: 'PlayStation' },
+    { first_release_date: '2000', platform_id: 8, platform_name: 'Dreamcast' },
+    { first_release_date: '2006-12-21', platform_id: 46, platform_name: 'PSP' },
+    { first_release_date: '2006-12-21', platform_id: 81, platform_name: 'PlayStation 3' },
+    { first_release_date: '2012-08-28', platform_id: 105, platform_name: 'PS Vita' },
+  ],
+  sample_cover: {
+    height: 800,
+    image: 'https://cdn.mobygames.com/covers/4094243-dino-crisis-playstation-front-cover.jpg',
+    platforms: ['PlayStation'],
+    thumbnail_image: 'https://cdn.mobygames.com/9d40a06e-aba5-11ed-9d80-02420a00019a.webp',
+    width: 794,
+  },
+  sample_screenshots: [
+    {
+      caption: 'Introduction',
+      height: 240,
+      image: 'https://cdn.mobygames.com/screenshots/15995541-dino-crisis-playstation-introduction.png',
+      thumbnail_image: 'https://cdn.mobygames.com/6a1cab8c-bf24-11ed-9c42-02420a000140.webp',
+      width: 320,
+    },
+    {
+      caption: 'Costume selection',
+      height: 480,
+      image: 'https://cdn.mobygames.com/screenshots/334003-dino-crisis-windows-costume-selection.jpg',
+      thumbnail_image: 'https://cdn.mobygames.com/47313eb0-ab6c-11ed-ac16-02420a000199.webp',
+      width: 640,
+    },
+    {
+      caption: 'Wandering in the shaft',
+      height: 480,
+      image: 'https://cdn.mobygames.com/screenshots/11817816-dino-crisis-dreamcast-wandering-in-the-shaft.jpg',
+      thumbnail_image: 'https://cdn.mobygames.com/e200a106-ac1b-11ed-9f52-02420a000130.webp',
+      width: 640,
+    },
+    {
+      caption: 'Helicopter from the intro',
+      height: 480,
+      image: 'https://cdn.mobygames.com/screenshots/11820030-dino-crisis-dreamcast-helicopter-from-the-intro.jpg',
+      thumbnail_image: 'https://cdn.mobygames.com/e233f3a8-ac1b-11ed-9b47-02420a000133.webp',
+      width: 640,
+    },
+    {
+      caption: 'Operation Wipe Out - Being attacked by your first target.',
+      height: 480,
+      image:
+        'https://cdn.mobygames.com/screenshots/10561370-dino-crisis-windows-operation-wipe-out-being-attacked-by-your-fi.jpg',
+      thumbnail_image: 'https://cdn.mobygames.com/2da36478-ac11-11ed-83c1-02420a000131.webp',
+      width: 640,
+    },
+  ],
+  title: 'Dino Crisis',
+};
+```
+
+</Details>
+
+### Format record in the response
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.gameById('3695', { format: 'brief' });
+```
+
+<Details>
+
+```js
+{
+  game_id: 3695,
+  moby_url: 'https://www.mobygames.com/game/3695/brave-fencer-musashi/',
+  title: 'Brave Fencer Musashi',
+};
+```
+
+</Details>
