@@ -1,0 +1,20 @@
+---
+title: updateApiKey
+---
+
+This setter refreshes the `API key` used for API calls to MobyGames API.
+
+## Parameters
+
+| Params | Type     | Required | Description       |
+| ------ | -------- | :------: | ----------------- |
+| key    | `string` |   Yes    | The new `API key` |
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access token');
+client.updateApiKey = 'new access token';
+```

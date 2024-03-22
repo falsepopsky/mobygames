@@ -1,0 +1,70 @@
+---
+title: Introduction
+---
+
+This package provides the `MobyGames` class, which facilitates interaction with various endpoints of MobyGames API.
+
+## Parameters
+
+To instantiate the MobyGames class, provide your valid MobyGames API key:
+
+| Params | Type     | Required | Description            |
+| ------ | -------- | :------: | ---------------------- |
+| key    | `string` |   Yes    | Your MobyGames API key |
+
+## Throws exceptions
+
+The package throws exceptions in two key scenarios:
+
+- key
+  :::danger[Error]
+
+  Thrown when a `key` is not provided during class instantiation.
+
+  :::
+
+- Response.ok
+
+  > For more information about the `ok` property, refer to the official documentation:
+  > https://developer.mozilla.org/en-US/docs/Web/API/Response/ok
+
+  :::danger[RangeError]
+
+  Thrown when a response from `MobyGames API` indicates an issue (response.ok is false).
+
+  Potential causes include:
+
+  - Incorrect query or path parameters
+  - Authorization errors
+  - Server-side problems
+
+  :::
+
+## Best Practices
+
+When making requests with this package, we strongly recommend using try-catch blocks to gracefully handle potential exceptions arising from asynchronous operations. This practice promotes application stability and provides opportunities for informative error messaging.
+
+```ts
+interface MobyGamesErrorCause {
+  status: number;
+  json: {
+    code: number;
+    error: string;
+    message: string;
+  };
+}
+
+try {
+  const client = new MobyGames('access token');
+  const { cover_groups } = await client.gamePlatformCovers('120555', '141');
+} catch (error: unknown) {
+  if (error instanceof RangeError) {
+    // Handle errors based on the response status
+    if ((error.cause as MobyGamesErrorCause).status === 401) {
+      console.log('Received Unauthorized response');
+    }
+  } else {
+    console.error('Caught other error type:', error);
+  }
+}
+```

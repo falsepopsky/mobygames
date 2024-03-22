@@ -1,0 +1,53 @@
+---
+title: genres
+---
+
+import Details from '@components/details.astro';
+import Tag from '@components/tag.astro';
+
+<Tag apiPath={'/v1/genres'} />
+
+This method returns a list of genres records. For official documentation of the
+[endpoint](https://www.mobygames.com/info/api/#genres), please refer to the MobyGames
+documentation.
+
+## Parameters
+
+This method does not require any parameters.
+
+## Example
+
+```js {4}
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+const data = await client.genres();
+```
+
+<Details>
+
+```js
+{
+  genres: [
+    {
+      genre_category: 'Basic Genres',
+      genre_category_id: 1,
+      genre_description:
+        '<p>Action games main mechanics revolve around one or more of the following:</p>\n<ul>\n<li>Accuracy</li>\n<li>Movement</li>\n<li>Quick Decisions</li>\n<li>Reflexes</li>\n<li>Timing</li>\n</ul>\n<p>This genre only applies to games that don\'t fit in the other action-based basic genres such as Racing/Driving, Role-Playing (RPG) and Sports. However, some games use a hybrid of genres and then a combination is allowed. This applies almost unique to the combination with Racing/Driving, e.g. the later <a href="https://www.mobygames.com/group/167/grand-theft-auto-series/">Grand Theft Auto</a> games (Action + Racing/Driving). Driving games that focus on vehicular combat as well, such as <a href="https://www.mobygames.com/game/86875/wreckfest/">Wreckfest</a> or the <a href="https://www.mobygames.com/group/1773/mario-kart-series/">Mario Kart</a> games do not receive the Action genre, they use the secondary genre Vehicular Combat instead.</p>\n<p>Another rare combination is Action + Adventure where both traditional story and puzzle based adventure mechanics are combined with action sequences. This should not be confused with the Action-Adventure genre which is used as a marketing term. MobyGames does not use the genre Action-Adventure. Those games are always treated as Action games here.</p>',
+      genre_id: 1,
+      genre_name: 'Action',
+    },
+    {
+      genre_category: 'Basic Genres',
+      genre_category_id: 1,
+      genre_description:
+        '<p>Add-ons, expansion packs or downloadable content (DLC) are additional content created for a released video game. They are applied to the main game and require it to run, as the content cannot be played separately. The content can be a full expansion of the existing game, but also small additions such as currencies, enemies, extras (non-game elements such as soundtracks, wallpapers, beta access etc.), game modes, items, maps, outfits/skins, player units and so on.</p>\n<p>Game entries using the genre "Add-on" do not receive any other genres inherited from the main game, except when it introduces a new genre to the game, such as a new perspective or a new theme. This also needs to be mentioned in the game\'s description.</p>',
+      genre_id: 62,
+      genre_name: 'Add-on',
+    },
+    // ...
+  ],
+};
+```
+
+</Details>
