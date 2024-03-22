@@ -14,7 +14,7 @@ env:
 jobs:
   release:
     name: 🚀 Release
-    if: ${{ (github.event.workflow_run.conclusion == 'success') && (github.repository == 'falsepopsky/mobygmes') }}
+    if: ${{ (github.event.workflow_run.conclusion == 'success') && (github.repository == 'falsepopsky/mobygames') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
