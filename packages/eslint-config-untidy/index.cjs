@@ -87,6 +87,7 @@ module.exports = {
     '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
     '@typescript-eslint/strict-boolean-expressions': 'error',
     '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     'n/no-missing-import': 'off',
     'no-console': 'off',
   },

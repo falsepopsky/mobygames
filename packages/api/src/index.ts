@@ -235,7 +235,7 @@ export class MobyGames {
   }
 
   /**
-   * @param key The new Api key for making API calls.
+   * @param key The new API key for making API calls.
    */
   set updateApiKey(key: string) {
     this.key = key;
@@ -326,21 +326,21 @@ export class MobyGames {
   /**
    * @param gameId The game `id`
    * @param platformId The platform `id`
-   * @returns A list of screenshots records on the specified game and platform.
-   */
-  public async gamePlatformScreenshots(gameId: string, platformId: string): Promise<GetGamePlatformScreenshots> {
-    const target = this.createQuery(`games/${gameId}/platforms/${platformId}/screenshots`);
-    return await this.fetcher<GetGamePlatformScreenshots>(target);
-  }
-
-  /**
-   * @param gameId The game `id`
-   * @param platformId The platform `id`
    * @returns A list of covers records on the specified game and platform.
    */
   public async gamePlatformCovers(gameId: string, platformId: string): Promise<GetGamePlatformCovers> {
     const target = this.createQuery(`games/${gameId}/platforms/${platformId}/covers`);
     return await this.fetcher<GetGamePlatformCovers>(target);
+  }
+
+  /**
+   * @param gameId The game `id`
+   * @param platformId The platform `id`
+   * @returns A list of screenshots records on the specified game and platform.
+   */
+  public async gamePlatformScreenshots(gameId: string, platformId: string): Promise<GetGamePlatformScreenshots> {
+    const target = this.createQuery(`games/${gameId}/platforms/${platformId}/screenshots`);
+    return await this.fetcher<GetGamePlatformScreenshots>(target);
   }
 
   /**
