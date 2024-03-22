@@ -20,5 +20,5 @@ module.exports = {
       tryExtensions: ['.js', '.json', '.node', '.ts'],
     },
   },
-  ignorePatterns: ['dist', '*.cjs'],
+  ignorePatterns: ['dist', '*.cjs', 'env.d.ts'],
 };
