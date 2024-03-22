@@ -1,0 +1,92 @@
+---
+title: Getting Started
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Details from '@components/details.astro';
+
+## Installation
+
+Use your preferred package manager
+
+<Tabs>
+<TabItem label="npm">
+
+```sh
+npm install @untidy/mobygames
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm add @untidy/mobygames
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn add @untidy/mobygames
+```
+
+</TabItem>
+</Tabs>
+
+## Making your first API request
+
+To get started, simply create an instance of the class with your API key:
+
+```js
+import { MobyGames } from '@untidy/mobygames';
+
+const client = new MobyGames('access api key');
+```
+
+Then, call any of the available methods to retrieve data from MobyGames API. In this case, we retrieve covers for an specific game and platform:
+
+```js
+const data = await client.gamePlatformCovers('120555', '141');
+```
+
+<Details>
+
+```js
+
+{
+  cover_groups: [
+    {
+      comments: 'Lenticular Edition',
+      countries: ['Belgium', 'The Netherlands'],
+      covers: [
+        {
+          comments: 'Lenticular Card on transparant sleeve',
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7427601-resident-evil-2-playstation-4-front-cover.jpg',
+          scan_of: 'Front Cover',
+          thumbnail_image: 'https://cdn.mobygames.com/3de9abaa-abf6-11ed-8949-02420a00012e.webp',
+          width: 636,
+        },
+        {
+          comments: null,
+          description: null,
+          height: 800,
+          image: 'https://cdn.mobygames.com/covers/7427568-resident-evil-2-playstation-4-media.jpg',
+          scan_of: 'Media',
+          thumbnail_image: 'https://cdn.mobygames.com/37132770-abf6-11ed-8949-02420a00012e.webp',
+          width: 800,
+        },
+        // ...
+      ],
+    },
+    // ...
+  ],
+};
+
+```
+
+</Details>
+
+That's it! You have now made your first request. For more documentation, please check the
+[API](/mobygames/api/) section.
