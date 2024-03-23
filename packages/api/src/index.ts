@@ -84,7 +84,7 @@ export interface QueriesGamesRecent extends QueriesBase {
 
 export type QueriesRandom = Omit<QueriesBase, 'offset'>;
 
-export type QueriesGameById = Omit<QueriesBase, 'limit' | 'offset'>;
+export type QueriesGameById = Record<'format', 'normal' | 'brief' | 'full'>;
 
 export interface GetGenres {
   genres: Genre[];
@@ -126,8 +126,8 @@ export type GetGameById<Q extends QueriesGameById> = Q['format'] extends 'normal
   ? GameNormal
   : Q['format'] extends 'brief'
     ? GameBrief
-    : Q['format'] extends 'id'
-      ? GamesType<number>
+    : Q['format'] extends 'full'
+      ? GameNormal
       : GameNormal;
 
 export interface GetGamePlatforms {
