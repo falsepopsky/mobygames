@@ -4,8 +4,8 @@
 
 ### Major Changes
 
-- b21d293: This package provides access to the MobyGames API, allowing you to retrieve game data through
-  various endpoints with optional query parameters.
+- b21d293: This package provides access to the MobyGames API, allowing you to retrieve game data
+  through various endpoints with optional query parameters.
 
   - `/games`
   - `/games/:game_id`
