@@ -16,6 +16,13 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "api",
+    "database",
+    "games",
+    "videogames",
+    "mobygames"
+  ],
   "scripts": {
     "clean:build": "rm -rf dist",
     "prebuild": "pnpm run clean:build",
