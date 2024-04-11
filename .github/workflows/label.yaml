@@ -1,5 +1,5 @@
 name: Labeler
-on: [pull_request]
+on: pull_request
 
 jobs:
   labeler:
@@ -9,7 +9,6 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v4.3.0
+      - uses: actions/labeler@v5.0.0
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yaml
