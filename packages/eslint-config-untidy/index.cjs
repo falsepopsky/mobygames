@@ -11,7 +11,7 @@ module.exports = {
     {
       plugins: ['vitest'],
       extends: ['plugin:vitest/recommended'],
-      files: ['packages/*/tests/*.test.ts'],
+      files: ['packages/api/tests/*.test.ts'],
       rules: {
         '@typescript-eslint/naming-convention': 'off',
       },
@@ -89,7 +89,13 @@ module.exports = {
     '@typescript-eslint/no-import-type-side-effects': 'error',
     '@typescript-eslint/restrict-template-expressions': 'off',
     'n/no-missing-import': 'off',
-    'no-console': 'off',
+    'n/no-unsupported-features/node-builtins': [
+      'error',
+      {
+        ignores: ['fetch'],
+      },
+    ],
+    'no-console': 'error',
   },
   reportUnusedDisableDirectives: true,
 };
