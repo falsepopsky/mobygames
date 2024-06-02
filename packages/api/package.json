@@ -30,7 +30,7 @@
     "test": "vitest --coverage"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.14.0",
     "typescript": "^5.4.5"
   },
   "engines": {
