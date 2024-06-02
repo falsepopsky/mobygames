@@ -1,11 +1,17 @@
 # @untidy/mobygames
 
+## 1.1.0
+
+### Minor Changes
+
+- 5f7d22f: feat: add support for new node.js version
+
 ## 1.0.1
 
 ### Patch Changes
 
-- aab8656: fix: The endpoint `/v1/games/:game_id` only supports the format `brief`, `normal` and `full`. Not
-  `id`.
+- aab8656: fix: The endpoint `/v1/games/:game_id` only supports the format `brief`, `normal` and
+  `full`. Not `id`.
 
   Response from the endpoint:
 
