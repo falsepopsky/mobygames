@@ -5,7 +5,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       reporter: ['text'],
-      include: ['packages/*/src/*.ts'],
+      include: ['packages/api/src/*.ts'],
     },
     setupFiles: ['./vitest.setup.ts'],
   },
