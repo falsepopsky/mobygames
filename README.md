@@ -6,11 +6,10 @@ Monorepo containing tools for `MobyGames API`.
 
 ## :package: Packages
 
-| packages                                                 | Docs                               |
-| :------------------------------------------------------- | :--------------------------------- |
-| [@untidy/mobygames](./packages/api/)                     | [Readme](./packages/api/README.md) |
-| [eslint-config-untidy](./packages/eslint-config-untidy/) | `Internal`                         |
-| [@untidy/mobygames-docs](./packages/web/)                | `Internal`                         |
+| packages                                  | Docs                               |
+| :---------------------------------------- | :--------------------------------- |
+| [@untidy/mobygames](./packages/api/)      | [Readme](./packages/api/README.md) |
+| [@untidy/mobygames-docs](./packages/web/) | `Internal`                         |
 
 ## :rocket: Contributing
 

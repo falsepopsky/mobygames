@@ -15,26 +15,31 @@
     "publish-packages": "pnpm run build && changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.5",
-    "@vitest/coverage-v8": "^1.6.0",
-    "eslint": "^8.57.0",
-    "eslint-config-untidy": "workspace:^",
-    "msw": "^2.3.1",
-    "prettier": "^3.3.0",
-    "prettier-plugin-astro": "^0.14.0",
-    "prettier-plugin-tailwindcss": "^0.6.1",
-    "tsx": "^4.11.0",
-    "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "@changesets/cli": "^2.28.1",
+    "@eslint/js": "^9.22.0",
+    "@vitest/coverage-v8": "^3.0.9",
+    "@vitest/eslint-plugin": "^1.1.38",
+    "eslint": "^9.22.0",
+    "eslint-plugin-jsdoc": "^50.6.8",
+    "eslint-plugin-n": "^17.16.2",
+    "eslint-plugin-promise": "^7.2.1",
+    "msw": "^2.7.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.27.0",
+    "vitest": "^3.0.9"
   },
   "engines": {
-    "node": "^20.0.0",
+    "node": "^18.0.0 || ^20.0.0 || ^22.0.0",
     "pnpm": ">=8"
   },
   "pnpm": {
     "overrides": {
-      "esbuild": "0.21.4"
+      "esbuild": "0.25.1"
     }
   },
-  "packageManager": "pnpm@9.1.4+sha256.30a1801ac4e723779efed13a21f4c39f9eb6c9fbb4ced101bce06b422593d7c9"
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af"
 }
