@@ -4,28 +4,20 @@ on:
     branches:
       - main
 
-env:
-  PNPM_VERSION: 9.1.4
-
 jobs:
   lint:
     name: ⬣ Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.6
-
+        uses: actions/checkout@v4.2.2
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
+        uses: pnpm/action-setup@v4
       - name: Setup Node
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v4.3.0
         with:
           node-version-file: ".nvmrc"
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
       - name: Run lint
@@ -35,19 +27,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.6
-
+        uses: actions/checkout@v4.2.2
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
+        uses: pnpm/action-setup@v4
       - name: Setup Node
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v4.3.0
         with:
           node-version-file: ".nvmrc"
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
       - name: Run tests
@@ -58,19 +45,14 @@ jobs:
     needs: [lint, test]
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.6
-
+        uses: actions/checkout@v4.2.2
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
+        uses: pnpm/action-setup@v4
       - name: Setup Node
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v4.3.0
         with:
           node-version-file: ".nvmrc"
           cache: pnpm
-
       - name: Install dependencies
         run: pnpm install
       - name: Run build

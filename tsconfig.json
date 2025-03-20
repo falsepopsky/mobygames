@@ -21,6 +21,6 @@
     "verbatimModuleSyntax": true,
     "types": ["vitest/globals"]
   },
-  "include": [".eslintrc.cjs", "mocks", "vitest.*.ts", "playground.ts"],
+  "include": ["eslint.config.js", "mocks", "vitest.*.ts", "playground.ts"],
   "exclude": ["node_modules"]
 }
