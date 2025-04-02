@@ -12,7 +12,7 @@ export default tseslint.config(
     plugins: { nodePlugin },
     extends: [nodePlugin.configs['flat/recommended-module']],
     rules: {
-      'n/no-unsupported-features/node-builtins': ['error', { ignores: ['fetch', 'import.meta.dirname'] }],
+      'n/no-unsupported-features/node-builtins': ['error', { ignores: ['fetch'] }],
       'n/no-missing-import': 'off',
     },
   },
