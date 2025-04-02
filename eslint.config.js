@@ -12,7 +12,7 @@ export default tseslint.config(
     plugins: { nodePlugin },
     extends: [nodePlugin.configs['flat/recommended-module']],
     rules: {
-      'n/no-unsupported-features/node-builtins': ['error', { ignores: ['fetch'] }],
+      'n/no-unsupported-features/node-builtins': ['error', { ignores: ['fetch', 'import.meta.dirname'] }],
       'n/no-missing-import': 'off',
     },
   },
@@ -83,5 +83,5 @@ export default tseslint.config(
     },
   },
   { files: ['**/*.js'], ...tseslint.configs.disableTypeChecked },
-  { ignores: ['**/dist/', 'packages/api/tests/*', 'packages/web/.astro/*'] }
+  { ignores: ['**/dist/', 'packages/api/tests/*', 'packages/web/'] }
 );
