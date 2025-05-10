@@ -1,12 +1,11 @@
 import starlight from '@astrojs/starlight';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://falsepopsky.github.io',
   base: 'mobygames',
   integrations: [
-    tailwind({ applyBaseStyles: false }),
     starlight({
       title: '@untidy/mobygames',
       description: 'Client library for MobyGames API in Node.js',
@@ -16,9 +15,13 @@ export default defineConfig({
         replacesTitle: true,
       },
       defaultLocale: 'root',
-      social: {
-        github: 'https://github.com/falsepopsky/mobygames',
-      },
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/falsepopsky/mobygames',
+        },
+      ],
       sidebar: [
         {
           label: 'Guides',
@@ -98,4 +101,5 @@ export default defineConfig({
       customCss: ['./src/tailwind.css'],
     }),
   ],
+  vite: { plugins: [tailwindcss()] },
 });
