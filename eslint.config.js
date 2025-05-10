@@ -12,13 +12,18 @@ export default tseslint.config(
     plugins: { nodePlugin },
     extends: [nodePlugin.configs['flat/recommended-module']],
     rules: {
+      'n/no-unsupported-features/node-builtins': ['error', { ignores: ['fetch'] }],
       'n/no-missing-import': 'off',
     },
   },
   pluginPromise.configs['flat/recommended'],
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  { files: ['packages/api/tests/*.test.ts'], plugins: { vitest }, rules: { ...vitest.configs.recommended.rules } },
+  {
+    files: ['packages/api/tests/*.test.ts'],
+    plugins: { vitest },
+    rules: { ...vitest.configs.recommended.rules },
+  },
   {
     files: ['packages/api/src/*.ts'],
     plugins: { jsdoc },
@@ -82,5 +87,5 @@ export default tseslint.config(
     },
   },
   { files: ['**/*.js'], ...tseslint.configs.disableTypeChecked },
-  { ignores: ['**/dist/', 'packages/api/tests/*', 'packages/web/'] }
+  { ignores: ['**/dist/', 'mocks/handlers', 'packages/api/tests/*', 'packages/web/'] }
 );
